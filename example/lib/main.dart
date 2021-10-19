@@ -1,5 +1,7 @@
+import 'package:commons_app/app/dependencies/app_dependencies.dart';
 import 'package:flutter/material.dart';
-import 'package:login_module/app/login_page.dart';
+import 'package:login_module/app/modules/app_modules.dart';
+import 'package:login_module/app/routes/app_routes.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,12 +10,13 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      getPages: LoginModule.routers,
+      initialRoute: AppRoutes.SPLASH,
     );
   }
 }

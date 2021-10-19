@@ -20,7 +20,7 @@ class _SplashPageState extends State<SplashPage> {
   void loadLoginPage() async {
     await Future.delayed(Duration(seconds: 3));
 
-    Get.to(AppRoutes.LOGIN);
+    Get.toNamed(AppRoutes.LOGIN);
   }
 
   @override
