@@ -11,6 +11,10 @@ dependencies:
   flutter:
     sdk: flutter
 
+  commons_app:
+    git:
+      url: https://github.com/danilovalimsp/commons_app.git  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
