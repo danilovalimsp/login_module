@@ -14,10 +14,21 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return GetBuilder<SplashController>(builder: (controller) {
       return Scaffold(
-        body: Center(
-          child: Text("Splash page"),
+          body: Container(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Splash page"),
+            Obx(
+              () => Visibility(
+                visible: controller.isLoading.value,
+                child: CircularProgressIndicator(),
+              ),
+            ),
+          ],
         ),
-      );
+      ));
     });
   }
 }
