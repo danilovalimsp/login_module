@@ -1,5 +1,6 @@
 import 'package:commons_app/app/dependencies/app_dependencies.dart';
 import 'package:flutter/material.dart';
+import 'package:login_module/app/pages/login/login_controller.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -9,13 +10,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  void openHomePage() {
-    Get.toNamed('home');
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return GetBuilder<LoginController>(builder: (controller) {
+      return Scaffold(
         appBar: AppBar(
           title: Text("Login Page"),
         ),
@@ -25,9 +23,13 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("Login Page"),
-              TextButton(onPressed: openHomePage, child: Text("Open Home Page"))
+              TextButton(
+                  onPressed: controller.openHomePage,
+                  child: Text("Open Home Page"))
             ],
           ),
-        ));
+        ),
+      );
+    });
   }
 }
